@@ -8,7 +8,6 @@ from datetime import datetime
 class ProjectsIdAccessRequests(BaseModel):
     id: int  # The ID or URL-encoded path of the project owned by the authenticated user
 
-
 @action_store.kubiya_action()
 def list_access_requests_for_a_project(input: ProjectsIdAccessRequests):
     #return get_wrapper(endpoint=f"/projects/{input.id}/access_requests", args=input.dict(exclude_none=True))
