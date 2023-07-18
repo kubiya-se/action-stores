@@ -24,7 +24,7 @@ def request_access_to_a_group(input: GroupsIdAccessRequests):
 
 
 # class ProjectsIdAccessRequests(BaseModel):
-#     id: int  # The ID or URL-encoded path of the group or project
+#     id: int  #The ID or URL-encoded path of the group or project
 
 
 @action_store.kubiya_action()

@@ -27,9 +27,6 @@ We use the GitLab REST API for all of our action stores: https://docs.gitlab.com
 
 # Coding Notes 
 ## Known Limitations and Issues
-* **Booleans**: In the Kubiya frontend, if you do not put any values, GitLabAPI *will* return an error related to converting ```str``` to ```bool```. You **must** put ```false``` for it to run with default settings.
-* **Default variables**: Again, you **must*** pass either an empty list ```[]``` or the default setting (usually ```default```) in some APIs. Until this is fixed, check the API documentation to see what input results in the default behavior. 
-* **Authentication**: Sometimes in cURL, GitLab wants auth via ```PRIVATE-TOKEN: <your_access_token> ``` instead of ```Authorization: Bearer OAUTH-TOKEN```
 * **Enums and Validators**: I used Enums and the python @validator for fields where it's "one or the other", such as in wikis_group.py. The user either needs to specify title or content. I'm still a little unsure of how well it operates
 * **Uploading Files**: How should we upload files to GitLab, such as avatars? All we have is a string input. 
 * **Visual Review Discussions API**: This is planned for removal in May 2022 (Gitlab 17.0)
