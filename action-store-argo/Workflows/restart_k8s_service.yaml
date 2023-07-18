@@ -1,0 +1,53 @@
+author: "kubiyamg@gmail.com"
+version: 3
+type: "conversation"
+name: "Restart K8s Service using ArgoCD"
+steps:
+  - type: "action"
+    id: "get_all_apps"
+    action:
+      name: "get_all_apps"
+      store: "argo"
+      runner: "<your runner>"
+      async: false
+      parameters: {}
+  - type: "jq"
+    id: "parse_apps"
+    jq: ".get_all_apps.items[].metadata.name"
+  - type: "input"
+    value_type: "enum"
+    id: "select_app"
+    prompt: "Which application would you like to restart?"
+    possible_values: "${parse_apps}"
+  - type: "input"
+    value_type: "boolean"
+    id: "confirm_restart"
+    prompt: "Are you sure you want to restart ${select_app}?"
+  - type: "condition"
+    id: "restart_condition"
+    if:
+      arg: "${confirm_restart}"
+      is: "equals"
+      arg2: "true"
+      then:
+        - type: "action"
+          id: "restart_app"
+          action:
+            name: "restart_service"
+            store: "argo"
+            runner: "<your runner>"
+            async: false
+            parameters:
+              app_name: "${select_app}"
+        - type: "message"
+          id: "successful_restart"
+          label: ""
+          prompt: "We have successfully restarted Application: ${select_app}."
+        - type: "exit"
+          id: "true_exit"
+      else:
+        - type: "message"
+          id: "cancel_restart_message"
+          prompt: "Ok, I have canceled the restart of ${select_app}. Let me know if I can be of any further assistance."
+        - type: "exit"
+          id: "false_exit"

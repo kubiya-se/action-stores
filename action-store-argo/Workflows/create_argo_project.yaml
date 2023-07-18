@@ -1,0 +1,27 @@
+author: "kubiyamg@gmail.com"
+version: 3
+type: "conversation"
+name: "Create Argo project"
+steps:
+  - type: "input"
+    value_type: "text"
+    id: "project_name"
+    label: ""
+    prompt: "What would you like to name this project?"
+  - type: "action"
+    id: "create_project"
+    label: ""
+    action:
+      name: "create_project"
+      store: "argo"
+      runner: "<your runner>"
+      async: false
+      parameters:
+        project_name: "${project_name}"
+  - type: "message"
+    id: "successful_create"
+    label: ""
+    prompt: "Project ${create_project.metadata.name} created within namespace ${create_project.metadata.namespace}."
+  - type: "exit"
+    id: "exit"
+    label: ""
