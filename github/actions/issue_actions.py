@@ -103,7 +103,7 @@ def unlock_issue(params: UnlockIssueParams):
     
 @action_store.kubiya_action()
 def link_user_account_issues_assigned_to_authenticated_user(params: ListAccountIssuesAssignedToUserParams):
-    resp = put_wrapper(f"/repos/{params.owner}/{params.repo}/issues/{params.issue_number}/lock", data)
+    resp = get_wrapper(f"/user/issues")
     return resp
     
 
