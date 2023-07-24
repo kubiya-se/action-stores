@@ -1,7 +1,7 @@
 from typing import List, Any
 from pydantic import BaseModel
 from . import action_store as action_store
-from .http_wrapper import get_wrapper
+from ..http_wrapper import get_wrapper
 
 class JenkinsNode(BaseModel):
     displayName: str

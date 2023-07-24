@@ -2,7 +2,7 @@ from typing import List, Any, Optional
 import json
 from pydantic import BaseModel
 from . import action_store as action_store
-from .http_wrapper import get_wrapper, post_wrapper, post_wrapper_full_response, get_wrapper_full_response
+from ..http_wrapper import get_wrapper, post_wrapper, post_wrapper_full_response, get_wrapper_full_response
 import time
 import logging
 

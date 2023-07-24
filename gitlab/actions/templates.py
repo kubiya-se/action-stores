@@ -1,7 +1,7 @@
 from typing import List, Any, Optional, Union
 from pydantic import BaseModel, Field
 from . import action_store as action_store
-from .http_wrapper import get_wrapper, post_wrapper
+from ..http_wrapper import get_wrapper, post_wrapper
 from datetime import datetime
 
 
