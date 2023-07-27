@@ -4,6 +4,7 @@ from ..main_store import action_store as action_store
 from .http_wrapper import *
 from datetime import datetime
 from ..models.conan import *
+
 @action_store.kubiya_action()
 def ping(input: Ping):
     return get_wrapper(endpoint=f'{input.route_prefix}/ping')
