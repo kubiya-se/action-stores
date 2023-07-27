@@ -1,6 +1,6 @@
 import requests
 from typing import Dict, Any, Optional
-from .secrets import get_secrets
+from ..get_secrets import get_secrets
 
 
 def get_wrapper(endpoint: str, args: Optional[Dict[str, Any]] = None):

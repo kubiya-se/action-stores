@@ -2,8 +2,8 @@ from cmd import IDENTCHARS
 from typing import List, Any, Optional, Union, Union
 from enum import Enum
 from pydantic import BaseModel, Field
-from . import action_store as action_store
-from ..http_wrapper import *
+from ..main_store import action_store as action_store
+from ..actions.http_wrapper import *
 from datetime import datetime
 
 class ProjectListRequest(BaseModel):

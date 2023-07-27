@@ -1,6 +1,6 @@
 from typing import List, Any, Optional, Union
 from pydantic import BaseModel, Field
-from . import action_store as action_store
+from ..main_store import action_store as action_store
 from datetime import datetime
 
 from gql import gql, Client
