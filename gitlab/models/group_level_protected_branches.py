@@ -1,8 +1,9 @@
 from typing import List, Any, Optional, Union
 from pydantic import BaseModel, Field
-from ..main_store import action_store as action_store
+from ..action_store_init import action_store as action_store
 from ..actions.http_wrapper import *
 from datetime import datetime
+
 class GroupProtectedBranchesGet(BaseModel):
     id: Union[int, str] = Field(description='The ID or URL-encoded path of the group owned by the authenticated user.')
     search: Optional[str] = None
