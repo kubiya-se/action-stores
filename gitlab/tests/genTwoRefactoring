@@ -1,0 +1,47 @@
+import os
+import ast
+
+# The directory that contains the current Python files
+src_dir = '/Users/andrewkuang/Code/Kubiya/action-stores/gitlab/actions'
+
+# The directories where the new files will be placed
+action_dir = '/Users/andrewkuang/Code/Kubiya/action-stores/gitlab/actionstest'
+model_dir = '/Users/andrewkuang/Code/Kubiya/action-stores/gitlab/models'
+
+# The imports that should go at the top of each file
+imports = [
+    'from typing import List, Any, Optional, Union',
+    'from pydantic import BaseModel, Field',
+    'from ..action_store_init import action_store as action_store',
+    'from ..http_wrapper import *',
+    'from datetime import datetime',
+]
+
+for filename in os.listdir(src_dir):
+    if filename.endswith('.py'):
+        with open(os.path.join(src_dir, filename)) as file:
+            module = ast.parse(file.read())
+
+        model_lines = []
+        action_lines = []
+
+        for node in module.body:
+            if isinstance(node, ast.ClassDef):
+                # This is a Pydantic model
+                model_lines.append(ast.unparse(node))
+            elif isinstance(node, ast.FunctionDef) and any(isinstance(dec, ast.Call) and ast.unparse(dec.func) == 'action_store.kubiya_action' for dec in node.decorator_list):
+                # This is a decorated function
+                action_lines.append(ast.unparse(node))
+
+        # Write the models to a new file in the model directory
+        with open(os.path.join(model_dir, filename), 'w') as file:
+            file.write('\n'.join(imports))
+            file.write('\n')
+            file.write('\n'.join(model_lines))
+
+        # Write the actions to a new file in the action directory
+        with open(os.path.join(action_dir, filename), 'w') as file:
+            file.write('\n'.join(imports))
+            file.write(f'\nfrom ..models.{filename[:-3]} import *')  # Import the models
+            file.write('\n')
+            file.write('\n'.join(action_lines))

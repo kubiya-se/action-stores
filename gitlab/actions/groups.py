@@ -1,7 +1,7 @@
 from typing import List, Any, Optional, Union
 from .projects import Project, Permissions, ContainerExpirationPolicy, License, Links, Owner, Statistics, Namespace
 from pydantic import BaseModel
-from ..main_store import action_store as action_store
+from ..action_store_init import action_store as action_store
 from .http_wrapper import *
 from datetime import datetime
 from ..models.groups import *

@@ -1,4 +1,4 @@
-from .main_store import action_store
+from .action_store_init import action_store
 
 
 def get_secrets():
