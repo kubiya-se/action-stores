@@ -1,10 +1,8 @@
-from typing import List, Any, Optional, Union
-from pydantic import BaseModel, Field
-from datetime import datetime
+
 from ..models.issues import *
 
 from ..main_store import action_store as action_store
-from ..http_wrapper import *
+from ..http_wrapper import get_wrapper, post_wrapper, put_wrapper, delete_wrapper
 
 @action_store.kubiya_action()
 def list_all_issues(input: ListAllIssues):
