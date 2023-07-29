@@ -1,10 +1,11 @@
 import requests
 from typing import Dict, Any, Optional
-from ..get_secrets import get_secrets
+from .main_store import action_store
 
 
 def get_wrapper(endpoint: str, args: Optional[Dict[str, Any]] = None):
-    host, token = get_secrets()
+    host = action_store.secrets("GITLAB_URL")
+    token = action_store.secrets("GITLAB_TOKEN")
 
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json", }
     ret = requests.get(f"{host}{endpoint}", headers=headers, params=args)
@@ -18,7 +19,8 @@ def get_wrapper(endpoint: str, args: Optional[Dict[str, Any]] = None):
 
 
 def post_wrapper(endpoint: str, args: dict = None):
-    host, token = get_secrets()
+    host = action_store.secrets("GITLAB_URL")
+    token = action_store.secrets("GITLAB_TOKEN")
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
@@ -34,7 +36,8 @@ def post_wrapper(endpoint: str, args: dict = None):
 
 
 def put_wrapper(endpoint: str, args: dict = None):
-    host, token = get_secrets()
+    host = action_store.secrets("GITLAB_URL")
+    token = action_store.secrets("GITLAB_TOKEN")
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
@@ -50,7 +53,8 @@ def put_wrapper(endpoint: str, args: dict = None):
 
 
 def delete_wrapper(endpoint: str, args: dict = None):
-    host, token = get_secrets()
+    host = action_store.secrets("GITLAB_URL")
+    token = action_store.secrets("GITLAB_TOKEN")
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
@@ -66,7 +70,8 @@ def delete_wrapper(endpoint: str, args: dict = None):
 
 
 def patch_wrapper(endpoint: str, args: dict = None):
-    host, token = get_secrets()
+    host = action_store.secrets("GITLAB_URL")
+    token = action_store.secrets("GITLAB_TOKEN")
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",

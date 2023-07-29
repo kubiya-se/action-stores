@@ -1,8 +1,8 @@
-from typing import List, Any, Optional, Union
+from typing import List, Any, Optional, Union, Dict, Union
 from pydantic import BaseModel, Field
-from ..action_store_init import action_store as action_store
-from ..actions.http_wrapper import *
 from datetime import datetime
+
+
 class ListMergeRequests(BaseModel):
     id: Union[int, str] = Field(..., description='The ID or URL-encoded path of the project owned by the authenticated user.')
     approved_by_ids: Optional[List[int]] = Field(None, description='Returns merge requests which have been approved by all the users with the given id. Maximum of 5. None returns merge requests with no approvals. Any returns merge requests with an approval.')
