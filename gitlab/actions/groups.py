@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from ..models.groups import *
 
-from ..main_store import action_store as action_store
+from .. import action_store as action_store
 from ..http_wrapper import *
 
 class Statistics(BaseModel):

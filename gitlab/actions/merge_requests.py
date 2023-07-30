@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 from ..models.merge_requests import *
 
-from ..main_store import action_store as action_store
+from .. import action_store as action_store
 from ..http_wrapper import *
 
 @action_store.kubiya_action()

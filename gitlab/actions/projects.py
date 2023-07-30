@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field, parse_obj_as
 from datetime import datetime
 from ..models.projects import *
 
-from ..main_store import action_store as action_store
+from .. import action_store as action_store
 from ..http_wrapper import *
 
 class Namespace(BaseModel):
@@ -70,6 +70,9 @@ class Permissions(BaseModel):
 
 
 class Project(BaseModel):
+
+    # project: dict
+
     id: Union[int,str]
     description: Optional[str]
     name: Optional[str]
@@ -183,8 +186,8 @@ class Project(BaseModel):
 @action_store.kubiya_action()
 def list_all_projects(input: ProjectListRequest):
     response = get_wrapper(endpoint=f'/projects', args=input.dict(exclude_none=True))
-    #return parse_obj_as(List[Project], response)
-    return Project.model_validate(response)
+    return parse_obj_as(List[Project], response)
+    # return Project(projects=response)
 
 
 @action_store.kubiya_action()
