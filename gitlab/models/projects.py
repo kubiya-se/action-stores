@@ -3,6 +3,221 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 from enum import Enum
 
+
+class Projects(BaseModel):
+    projects:List[dict]
+
+class SingleProject(BaseModel):
+    projects: dict
+
+
+class Users(BaseModel):
+    users: List[dict]
+
+class SingleUser(BaseModel):
+    users: dict
+
+class Groups(BaseModel):
+    groups: List[dict]
+
+class SingleGroup(BaseModel):
+    groups: dict
+
+
+# class Namespace(BaseModel):
+#     id: Optional[int]
+#     name: Optional[str]
+#     path: Optional[str]
+#     kind: Optional[str]
+#     full_path: Optional[str]
+#     parent_id: Optional[int]
+#     avatar_url: Optional[str]
+#     web_url: Optional[str]
+
+# class Statistics(BaseModel):
+#     commit_count: Optional[int]
+#     storage_size: Optional[int]
+#     repository_size: Optional[int]
+#     commit_count: Optional[int]
+#     storage_size: Optional[int]
+#     repository_size: Optional[int]
+#     wiki_size:  Optional[int]
+#     lfs_objects_size: Optional[int]
+#     job_artifacts_size: Optional[int]
+#     pipeline_artifacts_size: Optional[int]
+#     packages_size: Optional[int]
+#     snippets_size: Optional[int]
+#     uploads_size: Optional[int]
+
+
+# class Owner(BaseModel):
+#     id: Union[int,str]
+#     name: Optional[str]
+#     created_at: Optional[datetime]
+
+# class Links(BaseModel):
+#     self: Optional[str]
+#     issues: Optional[str]
+#     merge_requests: Optional[str]
+#     repo_branches: Optional[str]
+#     labels: Optional[str]
+#     events: Optional[str]
+#     members: Optional[str]
+#     cluster_agents: Optional[str]
+
+# class License(BaseModel):
+#     key: Optional[str]
+#     name: Optional[str]
+#     nickname: Optional[str]
+#     html_url: Optional[str]
+#     source_url: Optional[str]
+
+# class ContainerExpirationPolicy(BaseModel):
+#     cadence: Optional[str]
+#     enabled: Optional[bool]
+#     keep_n: Optional[int]
+#     older_than: Optional[str]
+#     name_regex: Optional[str]
+#     name_regex_keep: Optional[str]
+#     next_run_at: Optional[datetime]
+
+
+# class Permissions(BaseModel):
+#     project_access: Optional[Any]
+#     group_access: Optional[Any]
+
+
+# class Project(BaseModel):
+
+#     # project: dict
+
+#     id: Union[int,str]
+#     description: Optional[str]
+#     name: Optional[str]
+#     name_with_namespace: Optional[str]
+#     path: Optional[str]
+#     description_html: Optional[str]
+#     path_with_namespace: Optional[str]
+#     created_at: Optional[datetime]
+#     updated_at: Optional[datetime]
+#     default_branch: Optional[str]
+#     tag_list: Optional[List[str]]
+#     topics: Optional[List[str]]
+#     ssh_url_to_repo: Optional[str]
+#     http_url_to_repo: Optional[str]
+#     web_url: Optional[str]
+#     readme_url: Optional[str]
+#     avatar_url: Optional[str]
+#     forks_count: Optional[int]
+#     star_count: Optional[int]
+#     last_activity_at: Optional[datetime]
+#     namespace: Optional[Namespace]
+#     container_registry_image_prefix: Optional[str]
+#     _links: Optional[Links]
+#     empty_repo: Optional[bool]
+#     archived: Optional[bool]
+#     visibility: Optional[str]
+#     resolve_outdated_diff_discussions: Optional[bool]
+#     container_expiration_policy: Optional[ContainerExpirationPolicy]
+#     issues_enabled: Optional[bool]
+#     merge_requests_enabled: Optional[bool]
+#     wiki_enabled: Optional[bool]
+#     jobs_enabled: Optional[bool]
+#     snippets_enabled: Optional[bool]
+#     container_registry_enabled: Optional[bool]
+#     can_create_merge_request_in: Optional[bool]
+#     issues_access_level: Optional[str]
+#     repository_access_level: Optional[str]
+#     merge_requests_access_level: Optional[str]
+#     forking_access_level: Optional[str]
+#     wiki_access_level: Optional[str]
+#     builds_access_level: Optional[str]
+#     snippets_access_level: Optional[str]
+#     pages_access_level: Optional[str]
+#     analytics_access_level: Optional[str]
+#     container_registry_access_level: Optional[str]
+#     security_and_compliance_access_level: Optional[str]
+#     emails_disabled: Optional[bool]
+#     shared_runners_enabled: Optional[bool]
+#     marked_for_deleteion_at: Optional[datetime]
+#     marked_for_deletion_on: Optional[datetime]
+#     group_runners_enabled: Optional[bool]
+#     lfs_enabled: Optional[bool]
+#     creator_id: Optional[int]
+#     import_url: Optional[str]
+#     owner: Optional[Owner]
+#     import_type: Optional[str]
+#     import_status: Optional[str]
+#     import_error: Optional[str]
+#     open_issues_count: Optional[int]
+#     ci_default_git_depth: Optional[int]
+#     ci_forward_deployment_enabled: Optional[bool]
+#     ci_forward_deployment_rollback_allowed: Optional[bool]
+#     ci_allow_fork_pipelines_to_run_in_parent_project: Optional[bool]
+#     ci_job_token_scope_enabled: Optional[bool]
+#     ci_separated_caches: Optional[bool]
+#     public_jobs: Optional[bool]
+#     build_timeout: Optional[int]
+#     auto_cancel_pending_pipelines: Optional[str]
+#     ci_config_path: Optional[str]
+#     shared_with_groups: Optional[List[str]]
+#     only_allow_merge_if_pipeline_succeeds: Optional[bool]
+#     allow_merge_on_skipped_pipeline: Optional[bool]
+#     restrict_user_defined_variables: Optional[bool]
+#     request_access_enabled: Optional[bool]
+#     only_allow_merge_if_all_discussions_are_resolved: Optional[bool]
+#     remove_source_branch_after_merge: Optional[bool]
+#     printing_merge_request_link_enabled: Optional[bool]
+#     merge_method: Optional[str]
+#     squash_option: Optional[str]
+#     auto_devops_enabled: Optional[bool]
+#     auto_devops_deploy_strategy: Optional[str]
+#     keep_latest_artifact: Optional[bool]
+#     runner_token_expiration_interval: Optional[str]
+#     requirements_enabled: Optional[bool]
+#     requirements_access_level: Optional[str]
+#     security_and_compliance_enabled: Optional[bool]
+#     compliance_frameworks: Optional[List[str]]
+#     permissions: Optional[Permissions]
+#     statistics: Optional[Statistics]
+#     repository_storage: Optional[str]
+#     approvals_before_merge: Optional[int]  # Deprecated. Use merge request approvals API instead.
+#     mirror: Optional[bool]
+#     mirror_user_id: Optional[int]
+#     mirror_trigger_builds: Optional[bool]
+#     only_mirror_protected_branches: Optional[bool]
+#     mirror_overwrites_diverged_branches: Optional[bool]
+#     external_authorization_classification_label: Optional[str]
+#     packages_enabled: Optional[bool]
+#     service_desk_enabled: Optional[bool]
+#     service_desk_address: Optional[str]
+#     autoclose_referenced_issues: Optional[bool]
+#     enforce_auth_checks_on_uploads: Optional[bool]
+#     suggestion_commit_message: Optional[str]
+#     merge_commit_template: Optional[str]
+#     squash_commit_template: Optional[str]
+#     issue_branch_template: Optional[str]
+#     license_url: Optional[str]
+#     license: Optional[License]
+#     runners_token: Optional[str]
+
+# class User(BaseModel):
+#     id: Optional[Union[int,str]]
+#     username: Optional[str]
+#     name: Optional[str]
+#     state: Optional[str]
+#     avatar_url: Optional[str]
+#     web_url: Optional[str]
+
+
+# class Group(BaseModel):
+#     id: Optional[Union[int,str]]
+#     name: Optional[str]
+#     avatar_url: Optional[str]
+#     web_url: Optional[str]
+#     full_name: Optional[str]
+#     full_path: Optional[str]
+
 class ProjectListRequest(BaseModel):
     archived: Optional[bool] = Field(None)
     id_after: Optional[int] = Field(None)
@@ -54,6 +269,7 @@ class UsersUseridProjects(BaseModel):
     with_programming_language: Optional[str] = None
     updated_before: Optional[datetime] = None
     updated_after: Optional[datetime] = None
+
 class UsersUseridStarredprojects(BaseModel):
     user_id: str
     archived: Optional[bool] = None
@@ -72,6 +288,7 @@ class UsersUseridStarredprojects(BaseModel):
     with_merge_requests_enabled: Optional[bool] = None
     updated_before: Optional[datetime] = None
     updated_after: Optional[datetime] = None
+
 class ProjectsIdSingleProjectSingle(BaseModel):
     id: Union[int, str]
     license: Optional[bool] = None

@@ -2,6 +2,63 @@ from typing import List, Any, Optional, Union, Dict, Union
 from pydantic import BaseModel, Field
 from datetime import datetime
 
+
+
+# class Statistics(BaseModel):
+#     storage_size: int
+#     repository_size: int
+#     wiki_size: int
+#     lfs_objects_size: int
+#     job_artifacts_size: int
+#     pipeline_artifacts_size: int
+#     packages_size: int
+#     snippets_size: int
+#     uploads_size: int
+
+
+class Groups(BaseModel):
+    groups: List[dict]
+
+class Group(BaseModel):
+    groups: dict
+
+
+class Hooks(BaseModel):
+    hooks: List[str]
+
+class Hook(BaseModel):
+    hook: str
+
+class Rules(BaseModel):
+    rules: List[Any]
+
+# class Group(BaseModel):
+#     id: int
+#     name: str
+#     path: str
+#     description: str
+#     visibility: str
+#     share_with_group_lock: bool
+#     require_two_factor_authentication: bool
+#     two_factor_grace_period: int
+#     project_creation_level: str
+#     auto_devops_enabled: Optional[bool] = None
+#     subgroup_creation_level: str
+#     emails_disabled: Optional[bool] = None
+#     mentions_disabled: Optional[bool] = None
+#     lfs_enabled: bool
+#     default_branch_protection: int
+#     avatar_url: str
+#     web_url: str
+#     request_access_enabled: bool
+#     full_name: str
+#     full_path: str
+#     file_template_project_id: int
+#     parent_id: Optional[int] = None
+#     created_at: str
+#     statistics: Statistics
+#     wiki_access_level: str
+
 class GroupList(BaseModel):
     skip_groups: Optional[List[int]] = Field(None, description='Skip the group IDs passed')
     all_available: Optional[bool] = Field(None, description='Show all the groups you have access to')
