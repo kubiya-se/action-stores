@@ -34,7 +34,7 @@ def list_group_shared_projects(input: GroupSharedProjectsList):
 
 @action_store.kubiya_action()
 def get_group_details(input: GroupDetails):
-    response = get_wrapper(endpoint=f'/groups/{input.id}', args=input.dict(exclude_none=True))
+    response = get_wrapper(endpoint=f'/groups/{input.id}')
     return Group(groups = response)
 
 
@@ -42,16 +42,18 @@ def get_group_details(input: GroupDetails):
 # def download_group_avatar(input: GroupAvatar):
 #     return get_wrapper(endpoint=f'/groups/{input.id}/avatar', args=input.dict(exclude_none=True))
 
-# @action_store.kubiya_action()
-# def create_new_group(input: NewGroup):
-#     return post_wrapper(endpoint='/groups', args=input.dict(exclude_none=True))
+@action_store.kubiya_action()
+def create_new_group(input: NewGroup):
+    return post_wrapper(endpoint='/groups', args=input.dict(exclude_none=True))
 
 # @action_store.kubiya_action()
 # def transfer_project_to_group(input: TransferProjectToGroup):
 #     return post_wrapper(endpoint=f'/groups/{input.id}/projects/{input.project_id}', args=input.dict(exclude_none=True))
+
 # @action_store.kubiya_action()
 # def transfer_group(input: TransferGroup):
 #     return post_wrapper(endpoint=f'/groups/{input.id}/transfer', args=input.dict(exclude_none=True))
+
 # @action_store.kubiya_action()
 # def update_group(input: UpdateGroup):
 #     return put_wrapper(endpoint=f'/groups/{input.id}', args=input.dict(exclude_none=True))
@@ -76,6 +78,7 @@ def get_group_details(input: GroupDetails):
 # @action_store.kubiya_action()
 # def create_personal_access_token_for_service_account_user(input: CreatePersonalAccessTokenForServiceAccountUser):
 #     return post_wrapper(endpoint=f'/groups/{input.id}/service_accounts/{input.user_id}/personal_access_tokens', args=input.dict())
+
 @action_store.kubiya_action()
 def list_group_hooks(input: ListGroupHooks):
     response = get_wrapper(endpoint=f'/groups/{input.id}/hooks', args=input.dict())

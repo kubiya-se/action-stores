@@ -3,6 +3,36 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 
 
+class Issues(BaseModel):
+    issues: List[dict]
+
+class SingleIssue(BaseModel):
+    issues: dict
+
+class EditIssue(BaseModel):
+    add_labels: Optional[str]
+    assignee_ids: Optional[List[int]]
+    confidential: Optional[bool]
+    description: Optional[str]
+    discussion_locked: Optional[bool]
+    due_date: Optional[str]
+    epid_id: Optional[int]
+    epic_iid: Optional[int]
+    id: Union[int,str]
+    issue_iid: int
+    issue_type: Optional[str]
+    labels: Optional[str]
+    milestone_id: Optional[int]
+    remove_labels: Optional[str]
+    state_event: Optional[str]
+    title: Optional[str]
+    updated_at: Optional[str]
+    weight: Optional[int]
+
+
+class ListSingleIssue(BaseModel):
+    id: Union[int,str]
+
 class ListAllIssues(BaseModel):
     assignee_id: Optional[int] = None
     assignee_username: Optional[List[str]] = None
@@ -34,8 +64,10 @@ class ListAllIssues(BaseModel):
     updated_before: Optional[datetime] = None
     weight: Optional[int] = None
     with_labels_details: Optional[bool] = None
+    
 class ListAllGroupIssues(ListAllIssues):
     id: Union[int, str]
+
 class CreateProjectIssue(BaseModel):
     id: Union[int, str]
     assignee_id: Optional[int] = None

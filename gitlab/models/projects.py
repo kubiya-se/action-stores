@@ -248,6 +248,7 @@ class ProjectListRequest(BaseModel):
     updated_before: Optional[datetime] = Field(None)
     updated_after: Optional[datetime] = Field(None)
     custom_attributes: Optional[Dict[str, str]] = Field(None, description='A dictionary of custom attributes to filter by')
+    
 class UsersUseridProjects(BaseModel):
     user_id: str
     archived: Optional[bool] = None
