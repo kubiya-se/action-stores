@@ -1,11 +1,11 @@
 import requests
-from .secrets import get_secrets
+from .secrets import get_jira_secrets
 import logging
 import json
 
 logging.basicConfig(level=logging.INFO)
 
-url, username, password = get_secrets()
+url, username, password = get_jira_secrets()
 def get_wrapper(path: str, args: dict = None):
     ret = requests.get(f"{url}{path}", auth = (username, password), data=json.dumps(args))
     if not ret.ok:

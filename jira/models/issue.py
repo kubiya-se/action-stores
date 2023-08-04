@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from .common import SimpleResponse
 from typing import List, Optional, Any
 
@@ -57,7 +57,7 @@ class GetIssueResponse(BaseModel):
     operations: Optional[object]
     properties: Optional[object]
     renderedFields: Optional[object]
-    schema: Optional[object]
+    schema1: Optional[object] = Field(alias = 'schema')
     self: Optional[str]
     transitions: Optional[List[object]]
     versionedRepresentations: Optional[object]

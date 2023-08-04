@@ -412,9 +412,3 @@ def list_repos_for_authenticated_user():
     resp = get_wrapper("/user/repos")
     return resp
 
-def list_repos_via_username(params: ListUserRepos):
-    if params.dict(exclude_none = True):
-        resp = get_wrapper(f"/users/{params.username}/repos")
-        return resp
-    else:
-        return FAILED_MSG
