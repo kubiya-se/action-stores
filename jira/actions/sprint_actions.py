@@ -1,6 +1,6 @@
-from ..jira_wrapper import get_jira_instance
+from .jira_wrapper import get_jira_instance
 from ..models.sprint import SprintParams, SprintResponse, EndSprintParams, EndSprintResponse, AddIssueToSprintParams, AddIssueToSprintResponse, GetAllSprintsParams, GetAllSprintsResponse
-from .. import action_store as action_store
+from . import action_store as action_store
 
 
 @action_store.kubiya_action()
