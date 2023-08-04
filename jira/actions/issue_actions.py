@@ -4,7 +4,7 @@ from ..models.issue import *
 from ..models.jql import RunJQLParams, RunJQLResponse
 from ..models.common import SimpleResponse
 from .. import action_store as action_store
-from ..http_wrapper import get_wrapper, patch_wrapper, post_wrapper, put_wrapper, delete_wrapper
+from .http_wrapper import get_wrapper, patch_wrapper, post_wrapper, put_wrapper, delete_wrapper
 
 FAILED_MSG = "Insufficient data"
 
