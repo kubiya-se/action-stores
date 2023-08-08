@@ -6,7 +6,7 @@ from datetime import datetime
 
 # class Statistics(BaseModel):
 #     storage_size: int
-#     repository_size: int
+#     repository_siwe: int
 #     wiki_size: int
 #     lfs_objects_size: int
 #     job_artifacts_size: int
