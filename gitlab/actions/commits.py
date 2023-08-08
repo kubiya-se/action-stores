@@ -17,15 +17,15 @@ def get_a_single_commit(input: ProjectsIdRepositoryCommitsSha):
     return SingleDict(response=response)
 
 
-@action_store.kubiya_action()
-def get_references_a_commit_is_pushed_to(input: ProjectsIdRepositoryCommitsShaRefs):
-    response = get_wrapper(endpoint=f'/projects/{input.id}/repository/commits/{input.sha}/refs', args=input.dict(exclude_none=True))
-    return ListDict(response=response)
+# @action_store.kubiya_action()
+# def get_references_a_commit_is_pushed_to(input: ProjectsIdRepositoryCommitsShaRefs):
+#     response = get_wrapper(endpoint=f'/projects/{input.id}/repository/commits/{input.sha}/refs', args=input.dict(exclude_none=True))
+#     return ListDict(response=response)
 
-@action_store.kubiya_action()
-def cherry_pick_a_commit(input: ProjectsIdRepositoryCommitsShaCherrypick):
-    response = post_wrapper(endpoint=f'/projects/{input.id}/repository/commits/{input.sha}/cherry_pick', args=input.dict(exclude_none=True))
-    return SingleDict(response=response)
+# @action_store.kubiya_action()
+# def cherry_pick_a_commit(input: ProjectsIdRepositoryCommitsShaCherrypick):
+#     response = post_wrapper(endpoint=f'/projects/{input.id}/repository/commits/{input.sha}/cherry_pick', args=input.dict(exclude_none=True))
+#     return SingleDict(response=response)
 
 @action_store.kubiya_action()
 def revert_a_commit(input: ProjectsIdRepositoryCommitsShaRevert):

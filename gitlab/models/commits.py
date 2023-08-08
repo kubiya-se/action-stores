@@ -9,6 +9,9 @@ class ListDict(BaseModel):
 class SingleDict(BaseModel):
     response: dict
     
+class RequestInput(BaseModel):
+    pass
+
 class ProjectsIdRepositoryCommits(BaseModel):
     id: int
     ref_name: Optional[str] = None

@@ -37,20 +37,20 @@ def delete_user(input: DeleteUserInput):
     return SingleDict(response=response)
 
 @action_store.kubiya_action()
-def get_current_user():
+def get_current_user(input: RequestInput):
     response = get_wrapper(endpoint='/user')
     #return User(**response)
     return SingleDict(response=response)
 
 @action_store.kubiya_action()
-def get_current_user_status():
+def get_current_user_status(input: RequestInput):
     response = get_wrapper(endpoint='/user/status')
     #return UserStatus(**response)
     return SingleDict(response=response)
 
 @action_store.kubiya_action()
-def get_user_status(id_or_username: str):
-    response = get_wrapper(endpoint=f'/users/{id_or_username}/status')
+def get_user_status(input: GetUserInput):
+    response = get_wrapper(endpoint=f'/users/{input.id}/status')
     #return UserStatus(**response)
     return SingleDict(response=response)
 
@@ -61,7 +61,7 @@ def set_user_status(input: SetUserStatusInput):
     return SingleDict(response=response)
 
 @action_store.kubiya_action()
-def get_user_preferences():
+def get_user_preferences(RequestInput):
     response = get_wrapper(endpoint='/user/preferences')
     #return UserPreferences(**response)
     return SingleDict(response=response)

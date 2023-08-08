@@ -8,6 +8,9 @@ class ListDict(BaseModel):
 class SingleDict(BaseModel):
     response: dict
 
+class RequestInput(BaseModel):
+    pass
+
 class ListUsersInput(BaseModel):
     username: Optional[str] = None
     extern_uid: Optional[str] = None
