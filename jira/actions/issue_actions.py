@@ -1,4 +1,3 @@
-from ..jira_wrapper import get_jira_instance
 from atlassian import Jira
 from ..models.issue import *
 from ..models.jql import RunJQLParams, RunJQLResponse

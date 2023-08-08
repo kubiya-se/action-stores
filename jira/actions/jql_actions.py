@@ -1,5 +1,5 @@
 from ..models.jql import RunJQLParams, RunJQLResponse
-from ..jira_wrapper import get_jira_instance
+from .jira_wrapper import get_jira_instance
 from .issue_actions import get_jira_url
 from .. import action_store as action_store
 
