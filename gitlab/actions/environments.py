@@ -28,7 +28,7 @@ def update_an_existing_environment(input: ProjectsIdEnvironmentsEnvironmentsid):
 
 @action_store.kubiya_action()
 def delete_an_environment(input: ProjectsIdEnvironmentsEnvironmentidDelete):
-    response = delete_wrapper(endpoint=f'/projects/{input.id}/environments/{input.environment_id}', args=input.dict(exclude_none=True))
+    return delete_wrapper(endpoint=f'/projects/{input.id}/environments/{input.environment_id}', args=input.dict(exclude_none=True))
 @action_store.kubiya_action()
 def delete_multiple_stopped_review_apps(input: ProjectsIdEnvironmentsReviewapps):
     response = delete_wrapper(endpoint=f'/projects/{input.id}/environments/review_apps', args=input.dict(exclude_none=True))

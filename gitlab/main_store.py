@@ -9,5 +9,11 @@ from .actions import(
      users, 
      commits, 
      dora4_metrics, 
-     project_statistics
+     project_statistics,
+     environments,
+     repositories,
+     repository_files,
+     runners,
+     variables_group,
+     variables_project
 )
